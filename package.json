@@ -1,0 +1,20 @@
+{
+  "name": "p5-psy-toolkit",
+  "version": "1.0.0",
+  "description": "This is the Template Repl for p5.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild ./lib/app.js --bundle --minify --outfile=bundle.js",
+    "watch": "esbuild ./lib/app.js --bundle --watch --outfile=bundle.js"
+  },
+  "author": "EricZhan",
+  "license": "ISC",
+  "dependencies": {
+    "p5": "^1.6.0",
+    "p5js": "^1.2.18"
+  },
+  "devDependencies": {
+    "esbuild": "0.18.11"
+  }
+}

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild ./lib/app.js --bundle --minify --outfile=bundle.js",
-    "watch": "esbuild ./lib/app.js --bundle --watch --outfile=bundle.js"
+    "build": "esbuild ./lib/app.js --bundle --minify --outfile=script.js",
+    "watch": "esbuild ./lib/app.js --bundle --minify --watch --outfile=script.js"
   },
   "author": "EricZhan",
   "license": "ISC",

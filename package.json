@@ -1,6 +1,6 @@
 {
   "name": "p5-psy-toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is the Template Repl for p5.js.",
   "main": "index.js",
   "scripts": {

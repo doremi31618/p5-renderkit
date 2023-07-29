@@ -1,33 +1,56 @@
 import React, { useState } from 'react';
+// import eventbridge from '../../../lib/Utilities/eventbridge';
+import eventbridge from '../utils/eventbridge.js';
+function Setting() {
+  const [isDisplay, setDisplay] = useState(true); 
+    const [session, setSession] = useState('');
+    const [associateId, setAssociateId] = useState('');
+    const [subjectId, setSubjectId] = useState('');
 
-const Setting = () => {
-  const [input1, setInput1] = useState('');
-  const [input2, setInput2] = useState('');
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setDisplay(false);
+        const submitSetting = { session, associateId, subjectId }
+        eventbridge.emit('startExperiment', submitSetting);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    alert(`Input 1: ${input1}, Input 2: ${input2}`);
-  }
+        // console.log('Submitted:', );
+        // handle your form submission logic here
+    };
 
-  return (
-    <div>
-      <form>
-        <input
-          type="text"
-          value={input1}
-          onChange={(e) => setInput1(e.target.value)}
-          placeholder="Input 1"
-        />
-        <input
-          type="text"
-          value={input2}
-          onChange={(e) => setInput2(e.target.value)}
-          placeholder="Input 2"
-        />
-        <button onClick={handleClick}>Button 1</button>
-      </form>
-    </div>
-  );
-};
+    return (
+      <>{
+        isDisplay && <form className='setting' onSubmit={handleSubmit}>
+            <label>
+                Color Experiment
+            </label>
+            <label>
+                Experiment Session:
+                <input
+                    type="text"
+                    value={session}
+                    onChange={e => setSession(e.target.value)}
+                />
+            </label>
+            <label>
+                Associate ID:
+                <input
+                    type="text"
+                    value={associateId}
+                    onChange={e => setAssociateId(e.target.value)}
+                />
+            </label>
+            <label>
+                Subject ID:
+                <input
+                    type="text"
+                    value={subjectId}
+                    onChange={e => setSubjectId(e.target.value)}
+                />
+            </label>
+            <input type="submit" value="start experiment"/>
+        </form>
+      }</>
+    );
+}
 
 export default Setting;

@@ -1,49 +1,44 @@
+
 import React, { useState } from 'react';
 import { EventEmitter } from 'events';
+console.log('question component version 1.0.1')
 if (!document.eventBridge)document.eventBridge = new EventEmitter();
 
 const Question = () => {
-  const [hide, setHide] = useState(true);
-  const [input1, setInput1] = useState('');
-  const [input2, setInput2] = useState('');
-  document.eventBridge.on('clickHide', (_hide)=>{
-    setHide(!_hide)
+  //todo :
+  //1. add cover canvas
+  //2. add taildwind to style and arrange position
+  const [isDisplay, setDisplay] = useState(false);
+  document.eventBridge.once('displayQuestion', ()=>{
+    setDisplay(true)
+    console.log('display question')
   })
+
   const handleClick = (e) => {
-    e.preventDefault();
-    document.eventBridge.emit('clickHide', hide)
-    alert(`Input 1: ${input1}, Input 2: ${input2}`);
+    console.log('btn1 <same> click');
+    document.eventBridge.emit('onChooseAnswer', {
+      chooseAnswer : "same"
+    })
+    setDisplay(false)
     
   }
 
   const handleSecondClick = (e) => {
-    e.preventDefault();
-    alert(`Input 1: ${input1}, Input 2: ${input2}`);
+    console.log('btn <not same> click');
+    document.eventBridge.emit('onChooseAnswer', {
+      chooseAnswer : "not_same"
+    })
+    setDisplay(false)
   }
 
-  const component = (isHide)=>{
-    if (isHide)return<button onClick={handleClick}>Button 1</button>
-    return <div>
-    <form>
-      <input
-        type="text"
-        value={input1}
-        onChange={(e) => setInput1(e.target.value)}
-        placeholder="Input 1"
-      />
-      <input
-        type="text"
-        value={input2}
-        onChange={(e) => setInput2(e.target.value)}
-        placeholder="Input 2"
-      />
-      <button onClick={handleClick}>Button 1</button>
-      <button onClick={handleSecondClick}>Button 2</button>
-    </form>
+  return <div>
+    {isDisplay && <div>
+    
+      <button onClick={handleClick}>same</button>
+      <button onClick={handleSecondClick}>not same</button>
+    
+  </div>}
   </div>
-  }
-
-  return component(hide);
 };
 
 export default Question;

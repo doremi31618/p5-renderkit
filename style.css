@@ -11,3 +11,9 @@ div#dat_gui{
     z-index: 1;
     /* background-color: #444; */
 }
+
+.setting label,
+.seeting input {
+    display:flex;
+    margin-bottom: 10px;
+}

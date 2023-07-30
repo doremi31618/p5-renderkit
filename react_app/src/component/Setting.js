@@ -19,36 +19,39 @@ function Setting() {
 
     return (
       <>{
-        isDisplay && <form className='setting' onSubmit={handleSubmit}>
-            <label>
-                Color Experiment
-            </label>
-            <label>
-                Experiment Session:
-                <input
-                    type="text"
-                    value={session}
-                    onChange={e => setSession(e.target.value)}
-                />
-            </label>
-            <label>
-                Associate ID:
-                <input
-                    type="text"
-                    value={associateId}
-                    onChange={e => setAssociateId(e.target.value)}
-                />
-            </label>
-            <label>
-                Subject ID:
-                <input
-                    type="text"
-                    value={subjectId}
-                    onChange={e => setSubjectId(e.target.value)}
-                />
-            </label>
-            <input type="submit" value="start experiment"/>
-        </form>
+        isDisplay && <div>
+            <h2>Color Experiment</h2>
+            <form className='setting' onSubmit={handleSubmit}>
+                <label>
+                    Experiment Session:
+                    <input
+                        required
+                        type="text"
+                        value={session}
+                        onChange={e => setSession(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Associate ID:
+                    <input
+                        required
+                        type="text"
+                        value={associateId}
+                        onChange={e => setAssociateId(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Subject ID:
+                    <input
+                        required
+                        type="text"
+                        value={subjectId}
+                        onChange={e => setSubjectId(e.target.value)}
+                    />
+                </label>
+                <input type="submit" value="start experiment"/>
+            </form>
+        </div>
       }</>
     );
 }

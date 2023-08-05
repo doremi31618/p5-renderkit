@@ -30,10 +30,10 @@ const Question = () => {
   }
 
   return <div>
-    {isDisplay && <div>
+    {isDisplay && <div className='Question'>
     
-      <button onClick={handleClick}>same</button>
-      <button onClick={handleSecondClick}>not same</button>
+      <button  onClick={handleClick}>same</button>
+      <button  onClick={handleSecondClick}>not same</button>
     
   </div>}
   </div>

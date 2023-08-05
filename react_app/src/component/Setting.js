@@ -19,10 +19,10 @@ function Setting() {
 
     return (
       <>{
-        isDisplay && <div>
+        isDisplay && <div className=''>
             <h2>Color Experiment</h2>
             <form className='setting' onSubmit={handleSubmit}>
-                <label>
+                <label className=''>
                     Experiment Session:
                     <input
                         required

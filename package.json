@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "This is the Template Repl for p5.js.",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild ./lib/app.js --bundle --minify --outfile=script.js",

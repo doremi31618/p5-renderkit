@@ -14,16 +14,18 @@ const CustomInfo = ()=>{
         setDisplayBtn(!args.hideBtn);
         setDisplay(true);
     })
-    const onBtnClick = () => {
+    eventbridge.once('continueCustomInfo', ()=>{
         setDisplay(false);
         setDisplayBtn(false);
+    })
+    const onBtnClick = () => {
         eventbridge.emit('continueCustomInfo');
         // console.log('btn click');
     }
     return <>
         <div>
             {isDisplay && <h2>{title}</h2>}
-            {isDisplayBtn && <button onClick={onBtnClick}>continue</button>}
+            {isDisplayBtn && <button onClick={onBtnClick}>繼續</button>}
         </div>
     </>
 }

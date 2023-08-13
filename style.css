@@ -5,6 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    
 }
 
 div#dat_gui{
@@ -34,7 +35,7 @@ div#dat_gui{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(30px + 2vmin);
     color: white;
   }
   

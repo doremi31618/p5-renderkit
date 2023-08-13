@@ -11,13 +11,15 @@ const Question = () => {
     setDisplay(true)
     console.log('display question')
   })
+  eventbridge.once('onChooseAnswer', ()=>{
+    setDisplay(false)
+  })
 
   const handleClick = (e) => {
     console.log('btn1 <same> click');
     eventbridge.emit('onChooseAnswer', {
       chooseAnswer : "same"
     })
-    setDisplay(false)
     
   }
 
@@ -26,14 +28,13 @@ const Question = () => {
     eventbridge.emit('onChooseAnswer', {
       chooseAnswer : "not_same"
     })
-    setDisplay(false)
   }
 
   return <div>
     {isDisplay && <div className='Question'>
     
-      <button  onClick={handleClick}>same</button>
-      <button  onClick={handleSecondClick}>not same</button>
+      <button  onClick={handleClick}>沒變色</button>
+      <button  onClick={handleSecondClick}>有變色</button>
     
   </div>}
   </div>

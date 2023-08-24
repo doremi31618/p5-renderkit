@@ -33,8 +33,8 @@ const Question = () => {
   return <div>
     {isDisplay && <div className='Question'>
     
-      <button  onClick={handleClick}>沒變色</button>
-      <button  onClick={handleSecondClick}>有變色</button>
+      <button  onClick={handleClick}>沒變</button>
+      <button  onClick={handleSecondClick}>有變</button>
     
   </div>}
   </div>

@@ -1,0 +1,13 @@
+{
+  "name": "test_script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test_update_record.js",
+  "type": "module",
+  "scripts": {
+    "update_exe": "node test_update_record.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
